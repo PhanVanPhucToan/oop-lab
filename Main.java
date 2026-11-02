@@ -1,11 +1,29 @@
 
 package lab2;
 
+import java.util.Scanner;
+
 public class Main {
 	public static void main(String[] args) {
-		Diem d1 = new Diem(0, 3);
-		Diem d2 = new Diem(2, 0);
-		HinhChuNhat h1 = new HinhChuNhat(d1, d2);
-		System.out.println(h1);
+		Scanner sc = new Scanner(System.in);
+		System.out.println("nhap so luong phan so:");
+		int n = sc.nextInt();
+		PhanSo[] L = new PhanSo[n];
+		for(int i = 0; i < n; i++) {
+			System.out.println("nhap phan so thu " + (i+1));
+			int a = sc.nextInt();
+			int b = sc.nextInt();
+			L[i] = new PhanSo(a, b);
+		}
+		for(PhanSo i : L) {
+			System.out.println(i);
+		}
+		PhanSo total = new PhanSo();
+		for(int i = 0; i < n; i++) {
+			total = total.cong(L[i]);
+		}
+		System.out.println(total);
+		sc.close();
 	}
+
 }
